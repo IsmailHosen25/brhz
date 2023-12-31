@@ -1,0 +1,11 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.center{
+    @apply flex justify-center items-center w-full h-full
+}
+.border{
+    @apply border-[5px] border-solid border-txthilted
+}
