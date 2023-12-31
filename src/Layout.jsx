@@ -10,7 +10,9 @@ import Contact from './Web/Pages/ContactUS/Contact'
 export default function Layout() {
   return (
     <div className='min-w-full min-h-full bg-bgnrl font-mainfnt font-bold'>
-        <Nav/>
+         <Nav/>
+       <div>
+
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
@@ -19,6 +21,10 @@ export default function Layout() {
           <Route path='/login' element={<Login/>}/>
           <Route path="/sign" element={<Sign/>}/>
         </Routes>
+
+
+
+       </div>
     </div>
   )
 }
