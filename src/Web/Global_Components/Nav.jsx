@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useLoginPageVisible from "../../Hook/useLoginPageVisible"
 
 import { FaHome } from "react-icons/fa";
 import { FaUserTie, FaUsersViewfinder } from "react-icons/fa6";
@@ -9,11 +10,12 @@ import { MdContactPhone } from "react-icons/md";
 import profile from "../../assets/Hasan.jpg"
 
 export default function Nav() {
-  const [login, setlogin] = useState(true);
+  const {setvisible}=useLoginPageVisible()
+  const [login, setlogin] = useState(false);
   return (
     <div className="min-w-full center text-txtnrl">
       <div className="w-[95%] pt-[2px] grid grid-cols-4 grid-rows-2 sm:w-[90%]">
-        <div className="text-[20px] col-span-2 row-span-1">Blood</div>
+        <div className="text-[25px] col-span-2 row-span-1">Blood</div>
         <div className="col-span-2">
           {login ? (
             <div className="w-[100%] flex justify-end items-center gap-[15px]">
@@ -28,18 +30,12 @@ export default function Nav() {
               </Link>
             </div>
           ) : (
-            <div>
+            <div className="w-[100%] flex justify-end items-center">
               <Link
-                to={"/login"}
-                className="hidden center text-[20px] hover:text-txthilted  duration-300 "
+                onClick={()=>setvisible(true)}
+                className="text-[27px] flex flex-col justify-center items-center lg:text-[25px] lg:flex-row lg:gap-[3px] hover:text-txthilted  duration-300 "
               >
-                Login
-              </Link>
-              <Link
-                to={"/login"}
-                className="text-[20px] center hover:text-txthilted  duration-300 "
-              >
-                <FaUserTie />
+                <FaUserTie /> <span className="hidden sm:inline text-[15px] lg:text-[20px]">Sign in</span>
               </Link>
             </div>
           )}

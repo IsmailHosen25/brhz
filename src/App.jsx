@@ -1,9 +1,12 @@
 import './App.css'
 import Layout from './Layout'
+import  LoginPageVisibleProvider from './Context/LoginPageVisible'
 function App() {
 
   return (
-     <Layout/>
+    <LoginPageVisibleProvider>
+      <Layout/>
+    </LoginPageVisibleProvider>
   )
 }
 
